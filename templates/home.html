@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Churn Prediction</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    .form-group label {
+      font-weight: bold;
+    }
+    .form-control {
+      border-radius: 0;
+      border-color: #ccc;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      border-radius: 0;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .output-box {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1 class="text-center mb-4">Churn Prediction</h1>
+        <form action="http://localhost:5000/" method="POST">
+          <div class="form-group">
+            <label for="query1">Are you a SeniorCitizen:(Yes= 1 | No= 0)</label>
+            <textarea class="form-control" rows="2" id="query1" name="query1" autofocus>{{query1}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query2">MonthlyCharges:</label>
+            <textarea class="form-control" rows="2" id="query2" name="query2" autofocus>{{query2}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query3">TotalCharges:</label>
+            <textarea class="form-control" rows="2" id="query3" name="query3" autofocus>{{query3}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query4">gender:</label>
+            <textarea class="form-control" rows="2" id="query4" name="query4" autofocus>{{query4}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query5">Do you have Partner:</label>
+            <textarea class="form-control" rows="2" id="query5" name="query5" autofocus>{{query5}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query6">Do you have family members:</label>
+            <textarea class="form-control" rows="2" id="query6" name="query6" autofocus>{{query6}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query7">Do you have Phone Service in it:</label>
+            <textarea class="form-control" rows="2" id="query7" name="query7" autofocus>{{query7}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query8">Does the connection has Multiple Lines:</label>
+            <textarea class="form-control" rows="2" id="query8" name="query8" autofocus>{{query8}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query9">Does the connection contains Internet Service:</label>
+            <textarea class="form-control" rows="2" id="query9" name="query9" autofocus>{{query9}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query10">Does the package provide Online Security:</label>
+            <textarea class="form-control" rows="2" id="query10" name="query10" autofocus>{{query10}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query11">Does the package provide Online Backup:</label>
+            <textarea class="form-control" rows="2" id="query11" name="query11" autofocus>{{query11}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query12">Does the package provide Device Protection:</label>
+            <textarea class="form-control" rows="2" id="query12" name="query12" autofocus>{{query12}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query13">Does the package provide Tech Support:</label>
+            <textarea class="form-control" rows="2" id="query13" name="query13" autofocus>{{query13}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query14">Does the package include StreamingTV:</label>
+            <textarea class="form-control" rows="2" id="query14" name="query14" autofocus>{{query14}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query15">Does the package include Streaming Movies:</label>
+            <textarea class="form-control" rows="2" id="query15" name="query15" autofocus>{{query15}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query16">Contract:</label>
+            <textarea class="form-control" rows="2" id="query16" name="query16" autofocus>{{query16}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query17">Is it Paperless Billing:</label>
+            <textarea class="form-control" rows="2" id="query17" name="query17" autofocus>{{query17}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query18">What is the Payment Method:</label>
+            <textarea class="form-control" rows="2" id="query18" name="query18" autofocus>{{query18}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="query19">tenure:(in months)</label>
+            <textarea class="form-control" rows="2" id="query19" name="query19" autofocus>{{query19}}</textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
+          </div>
+        </form>
+        <div class="output-box">
+          <h4>Output:</h4>
+          <textarea class="form-control" rows="2" id="comment" name="query6" autofocus>{{output1}}</textarea>
+          <textarea class="form-control" rows="2" id="comment" name="query7" autofocus>{{output2}}</textarea>
+          <textarea class="form-control" rows="2" id="comment" name="query7" autofocus>{{chat_response}}</textarea>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
